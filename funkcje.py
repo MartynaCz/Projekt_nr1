@@ -10,7 +10,7 @@ class Transformacje:
             a - duża półoś elipsoidy - promień równikowy
             b - mała półoś elipsoidy - promień południkowy
             flat - spłaszczenie
-            ecc2 - mimośród^2
+            e2 - mimośród^2
         + WGS84: https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84
         + Inne powierzchnie odniesienia: https://en.wikibooks.org/wiki/PROJ.4#Spheroid
         + Parametry planet: https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
@@ -34,8 +34,8 @@ class Transformacje:
         '''
         ARGUMENTY:
         X - współrzędna X punktu | typ: float lub int
-        Y - współrzędna X punktu | typ: float lub int
-        Z - współrzędna X punktu | typ: float lub int
+        Y - współrzędna Y punktu | typ: float lub int
+        Z - współrzędna Z punktu | typ: float lub int
     
         WYNIKI:
         fi - szerokość geograficzna punktu | typ: float
@@ -123,7 +123,20 @@ class Transformacje:
         return x00, y00 
 
     def filam2XYZ(self, fi, lam,H):
+        '''
+        ARGUMENTY:
+         fi - szerokość geograficzna punktu | typ: float
+        lam - długość geograficzna punktu  | typ: float
         
+        WYNIKI:
+        X - współrzędna X punktu | typ: float lub int
+        Y - współrzędna Y punktu | typ: float lub int
+        Z - współrzędna Z punktu | typ: float lub int
+        
+        Funkcja transformująca wspolrzedne fi, lam na wspolrzedne X, Y, Z
+        '''
+        
+    
         N = self.a / np.sqrt(1 - self.e2 * np.sin(fi)**2)
         
     
@@ -149,9 +162,9 @@ class Transformacje:
         
         WYNIKI:
         N, E, U - wspolrzedne w trojwymiarowym ukladzie odniesienia
-        
+    
         '''
-        fi, lam, h = self.XYZ2filamh(x, y, z)
+        fi, lam, h = Transformacje.XYZ2filamh(x, y, z)
         
         
         d_x = x - x1
@@ -220,12 +233,28 @@ class Transformacje:
         zb - współrzędna Z punktu B| typ: float lub int
         
         WYNIKI:
-        odl - odległo
+        odl - odleglosc 2D
         '''
         
         odl = math.sqrt((xb - xa)**2 + (yb - ya)**2)
         return odl
+    
+    
+    
     def odl3D(self, xa, xb, ya, yb, za, zb):
+        '''
+        ARGUMENTY:
+        xa - współrzędna X punktu A| typ: float lub int
+        ya - współrzędna Y punktu A| typ: float lub int
+        za - współrzędna Z punktu A| typ: float lub int
+        
+        xb - współrzędna X punktu B| typ: float lub int
+        yb - współrzędna Y punktu B| typ: float lub int
+        zb - współrzędna Z punktu B| typ: float lub int
+        
+        WYNIKI:
+        odl - odleglosc 3D
+        '''
         odl = math.sqrt((xb - xa)**2 + (yb - ya)**2 +(zb-za)**2)
         return odl
 
