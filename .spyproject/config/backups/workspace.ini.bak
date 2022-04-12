@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['..\\..\\..\\.spyder-py3\\temp.py', '..\\..\\..\\Downloads\\cwiczenia3.py', '..\\..\\..\\Downloads\\geo_v1.py', '..\\Studia 2 rok\\3 semestr\\Informatyka\\proj\\Czarnowska_Martyna_gr1_proj1 3\\Functions.py']
+recent_files = ['..\\..\\..\\.spyder-py3\\temp.py', 'geo_v1.py', 'Functions.py', 'funkcje.py', '..\\Studia 2 rok\\3 semestr\\Informatyka\\proj\\Czarnowska_Martyna_gr1_proj1 3\\main.py', '..\\Studia 2 rok\\3 semestr\\Informatyka\\proj\\Czarnowska_Martyna_gr1_proj1 3\\funkcje_menu.py', 'wsp_inp.txt', 'example.py', '..\\..\\..\\Downloads\\cwiczenia3 (1).py', '..\\..\\..\\Downloads\\fi_lam-NEU.py']
 

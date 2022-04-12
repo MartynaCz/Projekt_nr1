@@ -52,7 +52,7 @@ class Transformacje:
             dms - degree, minutes, sec
         """
         r   = sqrt(X**2 + Y**2)           # promień
-        lat_prev = atan(Z / (r * (1 - self.ecc2)))    # pierwsze przybliilizenie
+        lat_prev = atan(Z / (r * (1 - self.ecc2)))    # pierwsze przyblizenie
         lat = 0
         while abs(lat_prev - lat) > 0.000001/206265:    
             lat_prev = lat
